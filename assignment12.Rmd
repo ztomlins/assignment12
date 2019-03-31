@@ -1,0 +1,40 @@
+---
+title: "Zac's Example Doc"
+author: "Zac Tomlinson"
+date: "March 31, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Zac's Example R Markdown File
+### Assignment 12
+[My Wordpress blog](https://ztomlins.home.blog/)  
+[My GitHub](https://github.com/ztomlins?tab=repositories)
+
+This sentence is a  _sample_ of __different__ formatting options in R Markdown.  
+  
+I found a cool package that adds alternative palette options for ggplot2: [vapoRwave](https://github.com/moldach/vapoRwave)  
+  
+Example palette Floral Shoppe:  
+```{r, echo=FALSE}
+scales::show_col(vapoRwave:::floralShoppe_palette)
+```  
+***  
+Using the Floral Shoppe palette on one of the standard R datasets:  
+```{r, echo=FALSE, warning=FALSE}
+library(ggplot2)
+library(vapoRwave)
+library(extrafont)
+library(extrafontdb)
+ggplot(mpg, aes(displ)) +
+  geom_histogram(aes(fill=class),
+                 binwidth = .1,
+                 col="black",
+                 size=.1) +
+  labs(title="Floral Shoppe",
+       subtitle="Engine Displacement across Vehicle Classes") + floral_shoppe() + scale_fill_floralShoppe()
+```  
+
+
